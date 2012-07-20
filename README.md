@@ -23,7 +23,11 @@ The server will then respond with `done` or `error` and close the connection.
     git clone git://github.com/Znarkus/pode.git
     cd pode
 
-Create a directory `action/` and copy `example/action.js` to `action/example.js`.  
+Create a directory `action/` and copy `example/action.js` to `action/example.js`.
+
+    mkdir action
+    cp example/action.js action/example.js
+
 Start the server.
 
     node .
