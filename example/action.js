@@ -1,4 +1,5 @@
 
 exports.run = function (job) {
-	console.log('ACTION EXAMPLE', job);
+	console.log('Example action executed', job);
+	throw 'Trying exceptions';
 };

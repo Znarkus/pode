@@ -15,7 +15,11 @@ var Job = function (action, parameters) {
 	self.parameters = parameters;
 	
 	self.run = function () {
-		actions[self.action].run(self);
+		try {
+			actions[self.action].run(self);
+		} catch (e) {
+			console.error(util.format('Error in action "%s": %s', self.action, e.message || e));
+		}
 	};
 	
 	self.queue = function () {
@@ -80,16 +84,16 @@ var server = net.createServer(function (socket) {
 			}
 			
 			socket.destroy();	// Make sure connection is closed
-			console.info('Connection destroyed');
+			console.info('Connection ended.');
 		}
 	});
 	
 	socket.on('end', function () {
-		console.info('Connection interupted');
+		console.info('Connection interupted.');
 	});
 	
 	socket.on('connect', function () {
-		console.info('Connection from ' + socket.remoteAddress);
+		console.info('Connection from ' + socket.remoteAddress + '.');
 	});
 	
 	
