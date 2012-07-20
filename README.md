@@ -1,4 +1,3 @@
-
 # Pode
 
 Asynchronous processing, with the ability to set triggers for actions: on _date_ do _some_action_.
@@ -24,11 +23,12 @@ The server will then respond with `done` or `error` and close the connection.
     git clone git://github.com/Znarkus/pode.git
     cd pode
 
-Create a directory `action/` and copy the example action from `example/` and rename it to `example.js`.
+Create a directory `action/` and copy `example/action.js` to `action/example.js`.  
+Start the server.
 
     node .
 
-Open another terminal.
+Open another terminal and run the example client.
 
     php -f example/client.php
 
