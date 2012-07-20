@@ -20,9 +20,10 @@ if ($socket === false) {
 }
 
 echo "Attempting to connect to '{$ip}' on port '{$port}'...";
-$result = socket_connect($socket, $ip, $port);
+$result = @socket_connect($socket, $ip, $port);
 if ($result === false) {
     echo "socket_connect() failed.\nReason: ($result) " . socket_strerror(socket_last_error($socket)) . "\n";
+    exit(1);
 } else {
     echo "OK.\n";
 }

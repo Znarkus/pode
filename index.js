@@ -96,6 +96,10 @@ var server = net.createServer(function (socket) {
 
 });
 
+if (!fs.existsSync('action')) {
+	throw 'Folder "action" does not exist';
+}
+
 fs.readdirSync('action').forEach(function(file) {
 	actions[file.substr(0, file.length - 3)] = require('./action/' + file);
 });
